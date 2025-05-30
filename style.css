@@ -1,0 +1,86 @@
+:where([class^="ri-"])::before {
+    content: "\f3c2";
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.hero-section {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 0.5) 100%), url('https://readdy.ai/api/search-image?query=A%20beautiful%20aerial%20view%20of%20Anambra%20state%20in%20Nigeria%2C%20showing%20modern%20infrastructure%2C%20green%20landscapes%2C%20and%20community%20development.%20The%20image%20has%20a%20clean%2C%20bright%20aesthetic%20with%20soft%20natural%20lighting%20highlighting%20the%20roads%2C%20buildings%2C%20and%20natural%20features.%20The%20left%20side%20of%20the%20image%20is%20brighter%20and%20clearer%2C%20gradually%20transitioning%20to%20a%20more%20detailed%20view%20on%20the%20right%20side.%20The%20composition%20creates%20a%20perfect%20backdrop%20for%20text%20overlay%20on%20the%20left%20while%20showcasing%20infrastructure%20details%20on%20the%20right.&width=1200&height=400&seq=hero123&orientation=landscape');
+    background-size: cover;
+    background-position: center;
+}
+
+.multi-select-dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.multi-select-dropdown.show {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.video-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-tag {
+    transition: background-color 0.3s ease;
+}
+
+.category-tag.active {
+    background-color: #008751;
+    color: white;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    margin-right: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #008751;
+    border-color: #008751;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}

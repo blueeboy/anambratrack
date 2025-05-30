@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anambra Infrastructure Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#008751', secondary: '#FFD700' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-['Pacifico'] text-primary flex items-center">
+                    <i class="ri-road-map-line ri-lg mr-2"></i>
+                    <span>AnambraTrack</span>
+                </h1>
+                <!-- <span class="ml-2 text-gray-700 font-medium">Infrastructure Tracker</span> -->
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="text-gray-700 hover:text-primary transition-colors">Home</a>
+                <a href="#projects" class="text-gray-700 hover:text-primary transition-colors">Projects</a>
+                <a href="#about" class="text-gray-700 hover:text-primary transition-colors">About</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+            </nav>
+            <div class="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer" id="mobile-menu-button">
+                <i class="ri-menu-line ri-lg"></i>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full transform opacity-0 -translate-y-full invisible pointer-events-none transition-all duration-300 z-50">
+                <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                    <a href="#work" class="text-gray-800 hover:text-primary py-2 transition-colors">Work</a>
+                    <a href="#about" class="text-gray-800 hover:text-primary py-2 transition-colors">About</a>
+                    <a href="#testimonials"
+                        class="text-gray-800 hover:text-primary py-2 transition-colors">Testimonials</a>
+                    <a href="#contact" class="text-gray-800 hover:text-primary py-2 transition-colors">Contact</a>
+                </div>
+            </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero-section py-16 md:py-24">
+        <div class="container mx-auto px-4 w-full">
+            <div class="max-w-2xl fade-in">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Explore Development in Your
+                    Community</h2>
+                <p class="text-lg md:text-xl text-gray-700 mb-8">Discover infrastructure projects across Anambra State's
+                    Local Government Areas. See the progress happening in your community.</p>
+                <button
+                    class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Search and Filter Section -->
+    <section class="bg-white sticky top-0 z-10 shadow-md py-6">
+        <div class="container mx-auto px-4">
+            <!-- Keyword Search -->
+            <div class="mb-6">
+                <div class="relative">
+                    <input type="text" id="keyword-search" placeholder="Search for projects..."
+                        class="w-full px-4 py-3 pl-12 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                    <div
+                        class="absolute left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 flex items-center justify-center text-gray-400">
+                        <i class="ri-search-line"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Filter Controls -->
+            <div class="flex flex-col md:flex-row gap-4">
+                <!-- LGA Filter -->
+                <div class="w-full md:w-1/2">
+                    <div class="relative" id="lga-dropdown-container">
+                        <button id="lga-dropdown-btn"
+                            class="w-full flex items-center justify-between px-4 py-3 border border-gray-300 rounded bg-white text-left focus:outline-none focus:ring-2 focus:ring-primary text-sm !rounded-button whitespace-nowrap">
+                            <span>Select Local Government Areas</span>
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </div>
+                        </button>
+                        <div id="lga-dropdown"
+                            class="multi-select-dropdown absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg z-20">
+                            <div class="p-2 border-b border-gray-200">
+                                <input type="text" id="lga-search" placeholder="Search LGAs..."
+                                    class="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-primary">
+                            </div>
+                            <div class="p-2" id="lga-options">
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Aguata" class="lga-option">
+                                    <span>Aguata</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Anambra East" class="lga-option">
+                                    <span>Anambra East</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Anambra West" class="lga-option">
+                                    <span>Anambra West</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Anaocha" class="lga-option">
+                                    <span>Anaocha</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Awka North" class="lga-option">
+                                    <span>Awka North</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Awka South" class="lga-option">
+                                    <span>Awka South</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Ayamelum" class="lga-option">
+                                    <span>Ayamelum</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Dunukofia" class="lga-option">
+                                    <span>Dunukofia</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Ekwusigo" class="lga-option">
+                                    <span>Ekwusigo</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Idemili North" class="lga-option">
+                                    <span>Idemili North</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Idemili South" class="lga-option">
+                                    <span>Idemili South</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Ihiala" class="lga-option">
+                                    <span>Ihiala</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Njikoka" class="lga-option">
+                                    <span>Njikoka</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Nnewi North" class="lga-option">
+                                    <span>Nnewi North</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Nnewi South" class="lga-option">
+                                    <span>Nnewi South</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Ogbaru" class="lga-option">
+                                    <span>Ogbaru</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Onitsha North" class="lga-option">
+                                    <span>Onitsha North</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Onitsha South" class="lga-option">
+                                    <span>Onitsha South</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Orumba North" class="lga-option">
+                                    <span>Orumba North</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Orumba South" class="lga-option">
+                                    <span>Orumba South</span>
+                                </label>
+                                <label class="flex items-center p-2 hover:bg-gray-100 rounded cursor-pointer">
+                                    <input type="checkbox" value="Oyi" class="lga-option">
+                                    <span>Oyi</span>
+                                </label>
+                            </div>
+                            <div class="p-2 border-t border-gray-200 flex justify-between">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Infrastructure Categories -->
+                <div class="w-full md:w-1/2">
+                    <div class="border border-gray-300 rounded p-2">
+                        <div class="flex flex-wrap gap-2" id="category-tags">
+                            <button
+                                class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
+                                data-category="roads">Roads</button>
+                            <button
+                                class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
+                                data-category="electricity">Electricity</button>
+                            <button
+                                class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
+                                data-category="schools">Schools</button>
+                            <button
+                                class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
+                                data-category="hospitals">Hospitals</button>
+                            <button
+                                class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
+                                data-category="water">Water</button>
+                            <button
+                                class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
+                                data-category="markets">Markets</button>
+                        </div>
+                    </div>
+                </div>
+                <button id="clear-lga"
+                    class="text-sm text-gray-600 hover:text-primary !rounded-button whitespace-nowrap">Clear
+                    All</button>
+                <button id="apply-lga"
+                    class="text-sm bg-primary text-white px-4 py-1 rounded hover:bg-opacity-90 !rounded-button whitespace-nowrap">Search</button>
+            </div>
+            <!-- Active Filters -->
+            <div class="mt-4 flex flex-wrap gap-2" id="active-filters">
+                <!-- Active filters will be added here dynamically -->
+            </div>
+        </div>
+    </section>
+    <!-- Main Content -->
+    <section class="py-8 md:py-12" id="projects">
+        <div class="container mx-auto px-4">
+            <div id="results-count" class="mb-6">
+                <h3 class="text-lg font-medium text-gray-700">Showing <span id="count-number">12</span> projects</h3>
+            </div>
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Road Construction Project"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Onitsha-Awka Expressway Expansion</h3>
+                        <p class="text-gray-600 text-sm mb-3">Major road expansion project connecting Onitsha and Awka,
+                            featuring dual carriageways and improved drainage systems to reduce flooding.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Awka
+                                South</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Roads</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="School Renovation Project"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Ekwulobia Secondary School Renovation</h3>
+                        <p class="text-gray-600 text-sm mb-3">Complete renovation of classrooms, laboratories, and
+                            administrative buildings with new educational equipment and technology infrastructure.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Aguata</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Schools</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Hospital Project" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Nnewi General Hospital Expansion</h3>
+                        <p class="text-gray-600 text-sm mb-3">Expansion of the general hospital with new wards, modern
+                            medical equipment, and improved emergency response facilities to serve the growing
+                            population.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Nnewi
+                                North</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Hospitals</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 4 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Electricity Project"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Aguleri Rural Electrification Project</h3>
+                        <p class="text-gray-600 text-sm mb-3">Extension of the power grid to previously unconnected
+                            rural communities, including installation of transformers and solar-powered street lighting.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Anambra
+                                East</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Roads</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Water Project" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Ogbaru Water Supply Scheme</h3>
+                        <p class="text-gray-600 text-sm mb-3">Comprehensive water treatment and distribution system
+                            providing clean drinking water to over 20 communities, reducing waterborne diseases.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Ogbaru</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Water</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 6 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Market Project" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Onitsha Main Market Modernization</h3>
+                        <p class="text-gray-600 text-sm mb-3">Upgrade of West Africa's largest market with improved
+                            stalls, fire safety systems, waste management, and digital payment infrastructure.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Onitsha
+                                North</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Markets</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 7 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Bridge Project" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Omambala River Bridge Construction</h3>
+                        <p class="text-gray-600 text-sm mb-3">Construction of a 500-meter bridge connecting previously
+                            isolated communities and reducing travel time between Anambra East and West by over 2 hours.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Anambra
+                                West</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Roads</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 8 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Solar Project" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Dunukofia Solar Mini-Grid Project</h3>
+                        <p class="text-gray-600 text-sm mb-3">Installation of 500kW solar mini-grid providing reliable
+                            electricity to 5 communities, powering homes, businesses, and public facilities.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Dunukofia</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Electricity</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 9 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Health Center Project"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Ekwusigo Primary Healthcare Centers</h3>
+                        <p class="text-gray-600 text-sm mb-3">Construction and equipping of 6 primary healthcare centers
+                            providing maternal care, immunization, and basic medical services to rural communities.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Ekwusigo</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Hospitals</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 10 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Technical School Project"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Anaocha Technical College Establishment</h3>
+                        <p class="text-gray-600 text-sm mb-3">New technical college offering vocational training in
+                            electronics, automotive repair, construction, and digital skills to prepare youth for
+                            employment.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Anaocha</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Schools</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 11 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Drainage Project" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Awka Flood Control System</h3>
+                        <p class="text-gray-600 text-sm mb-3">Comprehensive drainage system construction to prevent
+                            seasonal flooding in low-lying areas, protecting homes and businesses from water damage.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Awka
+                                North</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Water</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 12 -->
+                <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <div class="w-full h-0 pt-[56.25%] relative">
+                            <iframe class="absolute inset-0 w-full h-full"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Community Center Project"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Oyi Community Development Center</h3>
+                        <p class="text-gray-600 text-sm mb-3">Multi-purpose community center with meeting halls, skills
+                            training facilities, library, and digital access points serving as a hub for local
+                            development.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Oyi</span>
+                            <span
+                                class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Markets</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Load More Button -->
+            <div class="mt-8 text-center">
+                <button id="load-more"
+                    class="bg-white border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:text-white transition-colors shadow-sm whitespace-nowrap">
+                    Load More Projects
+                </button>
+            </div>
+            <!-- Hidden Projects Wrapper -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+                <div id="more-projects" class="hidden transition-opacity duration-700 opacity-0">
+                    <!-- Project Card 12 -->
+                    <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                            <div class="w-full h-0 pt-[56.25%] relative">
+                                <iframe class="absolute inset-0 w-full h-full"
+                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Community Center Project"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-2">Oyi Community Development Center</h3>
+                            <p class="text-gray-600 text-sm mb-3">Multi-purpose community center with meeting halls,
+                                skills
+                                training facilities, library, and digital access points serving as a hub for local
+                                development.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Oyi</span>
+                                <span
+                                    class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Markets</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card 12 -->
+                    <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                            <div class="w-full h-0 pt-[56.25%] relative">
+                                <iframe class="absolute inset-0 w-full h-full"
+                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Community Center Project"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-2">Oyi Community Development Center</h3>
+                            <p class="text-gray-600 text-sm mb-3">Multi-purpose community center with meeting halls,
+                                skills
+                                training facilities, library, and digital access points serving as a hub for local
+                                development.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Oyi</span>
+                                <span
+                                    class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Markets</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card 12 -->
+                    <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                            <div class="w-full h-0 pt-[56.25%] relative">
+                                <iframe class="absolute inset-0 w-full h-full"
+                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Community Center Project"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-2">Oyi Community Development Center</h3>
+                            <p class="text-gray-600 text-sm mb-3">Multi-purpose community center with meeting halls,
+                                skills
+                                training facilities, library, and digital access points serving as a hub for local
+                                development.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Oyi</span>
+                                <span
+                                    class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Markets</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card 12 -->
+                    <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                            <div class="w-full h-0 pt-[56.25%] relative">
+                                <iframe class="absolute inset-0 w-full h-full"
+                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Community Center Project"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-2">Oyi Community Development Center</h3>
+                            <p class="text-gray-600 text-sm mb-3">Multi-purpose community center with meeting halls,
+                                skills
+                                training facilities, library, and digital access points serving as a hub for local
+                                development.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Oyi</span>
+                                <span
+                                    class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Markets</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more hidden cards here -->
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-['Pacifico'] text-secondary mb-4 flex items-center">
+                        <i class="ri-road-map-line ri-lg mr-2"></i>
+                        <span>AnambraTrack</span>
+                    </h3>
+                    <p class="text-gray-400 mb-4">Tracking infrastructure development across Anambra State to promote
+                        transparency and community engagement.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-facebook-fill"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-twitter-fill"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-instagram-fill"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-youtube-fill"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Roads & Bridges</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Schools & Education</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Healthcare
+                                Facilities</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Water & Sanitation</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Electricity & Power</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2025 Anambra Infrastructure Tracker. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                        <i class="ri-visa-line ri-lg"></i>
+                    </div>
+                    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                        <i class="ri-mastercard-line ri-lg"></i>
+                    </div>
+                    <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                        <i class="ri-paypal-line ri-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.getElementById('navbar');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        // Handle scroll for navbar transparency
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-gray-900');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-gray-900');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+        
+        // Initialize navbar state
+        if (window.scrollY > 50) {
+            navbar.classList.add('bg-gray-900');
+        } else {
+            navbar.classList.add('bg-transparent');
+        }
+        
+        // Mobile menu toggle
+        mobileMenuButton.addEventListener('click', function () {
+            if (mobileMenu.classList.contains('opacity-0')) {
+                mobileMenu.classList.remove('opacity-0', '-translate-y-full', 'invisible', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'translate-y-0');
+                mobileMenuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
+            } else {
+                mobileMenu.classList.add('opacity-0', '-translate-y-full', 'invisible', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'translate-y-0');
+                mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+            }
+        });
+        
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('opacity-0', '-translate-y-full');
+                mobileMenu.classList.remove('opacity-100', 'translate-y-0');
+                mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+            });
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') return;
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+    </script>
+    <script id="dropdown-handler">
+        document.addEventListener('DOMContentLoaded', function () {
+            const lgaDropdownBtn = document.getElementById('lga-dropdown-btn');
+            const lgaDropdown = document.getElementById('lga-dropdown');
+            const lgaSearch = document.getElementById('lga-search');
+            const lgaOptions = document.querySelectorAll('.lga-option');
+            const clearLgaBtn = document.getElementById('clear-lga');
+            const applyLgaBtn = document.getElementById('apply-lga');
+            const activeFilters = document.getElementById('active-filters');
+            const projectsGrid = document.getElementById('projects-grid');
+            const countNumber = document.getElementById('count-number');
+            let selectedLGAsBeforeApply = new Set();
+            lgaOptions.forEach(option => {
+                option.addEventListener('change', function (e) {
+                    if (this.checked) {
+                        selectedLGAsBeforeApply.add(this.value);
+                    } else {
+                        selectedLGAsBeforeApply.delete(this.value);
+                    }
+                    e.stopPropagation();
+                });
+            });
+            function filterProjects() {
+                const selectedLGAs = Array.from(selectedLGAsBeforeApply);
+                const selectedCategories = Array.from(document.querySelectorAll('.category-tag.active'))
+                    .map(tag => tag.getAttribute('data-category'));
+                const projects = projectsGrid.querySelectorAll('.video-card');
+                let visibleCount = 0;
+                projects.forEach(project => {
+                    const projectLGA = project.querySelector('.bg-primary').textContent;
+                    const projectCategory = project.querySelector('.bg-secondary').textContent.toLowerCase();
+                    const matchesLGA = selectedLGAs.length === 0 || selectedLGAs.includes(projectLGA);
+                    const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(projectCategory);
+                    if (matchesLGA && matchesCategory) {
+                        project.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+                countNumber.textContent = visibleCount;
+            }
+            // Toggle dropdown
+            lgaDropdownBtn.addEventListener('click', function () {
+                lgaDropdown.classList.toggle('show');
+            });
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (event) {
+                const isClickInside = lgaDropdownBtn.contains(event.target) || lgaDropdown.contains(event.target);
+                if (!isClickInside && lgaDropdown.classList.contains('show')) {
+                    lgaDropdown.classList.remove('show');
+                }
+            });
+            // Search functionality
+            lgaSearch.addEventListener('input', function () {
+                const searchValue = this.value.toLowerCase();
+                const labels = document.querySelectorAll('#lga-options label');
+                labels.forEach(label => {
+                    const text = label.textContent.toLowerCase();
+                    if (text.includes(searchValue)) {
+                        label.style.display = 'flex';
+                    } else {
+                        label.style.display = 'none';
+                    }
+                });
+            });
+            // Clear all selections
+            clearLgaBtn.addEventListener('click', function () {
+                lgaOptions.forEach(option => {
+                    option.checked = false;
+                });
+                selectedLGAsBeforeApply.clear();
+            });
+            // Apply selections
+            applyLgaBtn.addEventListener('click', function () {
+                lgaOptions.forEach(option => {
+                    if (selectedLGAsBeforeApply.has(option.value)) {
+                        option.checked = true;
+                    } else {
+                        option.checked = false;
+                    }
+                });
+                updateActiveFilters();
+                filterProjects();
+                lgaDropdown.classList.remove('show');
+            });
+            // Update active filters
+            function updateActiveFilters() {
+                // Clear existing LGA filters
+                const existingLgaFilters = document.querySelectorAll('.active-filter-lga');
+                existingLgaFilters.forEach(filter => filter.remove());
+                // Add new LGA filters
+                lgaOptions.forEach(option => {
+                    if (option.checked) {
+                        const filterTag = document.createElement('div');
+                        filterTag.className = 'active-filter-lga flex items-center bg-gray-100 px-3 py-1 rounded-full text-sm';
+                        filterTag.innerHTML = `
+<span>${option.value}</span>
+<button class="ml-2 text-gray-500 hover:text-gray-700" data-lga="${option.value}">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-close-line"></i>
+</div>
+</button>
+`;
+                        activeFilters.appendChild(filterTag);
+                        // Add remove event
+                        const removeBtn = filterTag.querySelector('button');
+                        removeBtn.addEventListener('click', function () {
+                            const lgaValue = this.getAttribute('data-lga');
+                            lgaOptions.forEach(opt => {
+                                if (opt.value === lgaValue) {
+                                    opt.checked = false;
+                                }
+                            });
+                            filterTag.remove();
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+    <script id="category-filter-handler">
+        document.addEventListener('DOMContentLoaded', function () {
+            const categoryTags = document.querySelectorAll('.category-tag');
+            const activeFilters = document.getElementById('active-filters');
+            const projectsGrid = document.getElementById('projects-grid');
+            categoryTags.forEach(tag => {
+                tag.addEventListener('click', function () {
+                    const category = this.getAttribute('data-category');
+                    // Toggle active state
+                    this.classList.toggle('active');
+                    filterProjects();
+                    if (this.classList.contains('active')) {
+                        // Add to active filters
+                        const filterTag = document.createElement('div');
+                        filterTag.className = 'active-filter-category flex items-center bg-gray-100 px-3 py-1 rounded-full text-sm';
+                        filterTag.innerHTML = `
+<span>${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+<button class="ml-2 text-gray-500 hover:text-gray-700" data-category="${category}">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-close-line"></i>
+</div>
+</button>
+`;
+                        activeFilters.appendChild(filterTag);
+                        // Add remove event
+                        const removeBtn = filterTag.querySelector('button');
+                        removeBtn.addEventListener('click', function () {
+                            const categoryValue = this.getAttribute('data-category');
+                            categoryTags.forEach(ct => {
+                                if (ct.getAttribute('data-category') === categoryValue) {
+                                    ct.classList.remove('active');
+                                }
+                            });
+                            filterTag.remove();
+                            filterProjects();
+                        });
+                    } else {
+                        // Remove from active filters
+                        const existingFilter = document.querySelector(`.active-filter-category button[data-category="${category}"]`);
+                        if (existingFilter) {
+                            existingFilter.closest('.active-filter-category').remove();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <script id="search-handler">
+        document.addEventListener('DOMContentLoaded', function () {
+            const keywordSearch = document.getElementById('keyword-search');
+            const activeFilters = document.getElementById('active-filters');
+            let searchTimeout;
+            keywordSearch.addEventListener('input', function () {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const searchValue = this.value.trim();
+                    // Remove existing keyword filter
+                    const existingKeywordFilter = document.querySelector('.active-filter-keyword');
+                    if (existingKeywordFilter) {
+                        existingKeywordFilter.remove();
+                    }
+                    if (searchValue) {
+                        // Add new keyword filter
+                        const filterTag = document.createElement('div');
+                        filterTag.className = 'active-filter-keyword flex items-center bg-gray-100 px-3 py-1 rounded-full text-sm';
+                        filterTag.innerHTML = `
+<span>Keyword: ${searchValue}</span>
+<button class="ml-2 text-gray-500 hover:text-gray-700">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-close-line"></i>
+</div>
+</button>
+`;
+                        activeFilters.appendChild(filterTag);
+                        // Add remove event
+                        const removeBtn = filterTag.querySelector('button');
+                        removeBtn.addEventListener('click', function () {
+                            keywordSearch.value = '';
+                            filterTag.remove();
+                        });
+                    }
+                }, 500);
+            });
+        });
+    </script>
+    <script id="load-more-handler">
+        document.addEventListener('DOMContentLoaded', function () {
+            const loadMoreBtn = document.getElementById('load-more');
+            const moreProjects = document.getElementById('more-projects');
+            loadMoreBtn.addEventListener('click', function () {
+                // In a real implementation, this would load more projects
+                // For this demo, we'll just show a message
+                this.innerHTML = '<div class="w-5 h-5 border-t-2 border-primary border-solid rounded-full animate-spin mr-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div> Loading...';
+                setTimeout(() => {
+                    // Reveal hidden projects
+                    moreProjects.classList.remove('hidden');
+
+                    // Optional: add animation
+                    moreProjects.style.opacity = '1';
+                    this.innerHTML = 'No More Projects';
+                    this.disabled = true;
+                    this.classList.add('opacity-50', 'cursor-not-allowed');
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+
+</html>
