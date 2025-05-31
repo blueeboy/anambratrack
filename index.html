@@ -52,14 +52,15 @@
                 <p class="text-lg md:text-xl text-gray-700 mb-8">Discover infrastructure projects across Anambra State's
                     Local Government Areas. See the progress happening in your community.</p>
                 <button
-                    class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap">
-                    Get Started
+                    class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors shadow-md whitespace-nowrap"><a
+                        href="#projects">Get Started</a>
+
                 </button>
             </div>
         </div>
     </section>
     <!-- Search and Filter Section -->
-    <section class="bg-white sticky top-0 z-10 shadow-md py-6">
+    <section class="bg-white sticky top-0 z-10 shadow-md py-6" id="projects">
         <div class="container mx-auto px-4">
             <!-- Keyword Search -->
             <div class="mb-6">
@@ -178,10 +179,10 @@
                             </div>
                             <div class="p-2 border-t border-gray-200 flex justify-between">
                                 <button id="clear-lga"
-                                class="text-sm text-gray-600 hover:text-primary !rounded-button whitespace-nowrap">Clear
-                                All</button>
-                            <button id="apply-lga"
-                                class="text-sm bg-primary text-white px-4 py-1 rounded hover:bg-opacity-90 !rounded-button whitespace-nowrap">Search</button>
+                                    class="text-sm text-gray-600 hover:text-primary !rounded-button whitespace-nowrap">Clear
+                                    All</button>
+                                <button id="apply-lga"
+                                    class="text-sm bg-primary text-white px-4 py-1 rounded hover:bg-opacity-90 !rounded-button whitespace-nowrap">Search</button>
 
                             </div>
                         </div>
@@ -193,26 +194,28 @@
                         <div class="flex flex-wrap gap-2" id="category-tags">
                             <button
                                 class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
-                                data-category="roads">Roads</button>
+                                data-category="roads" id="category-tag">Roads</button>
                             <button
                                 class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
-                                data-category="electricity">Electricity</button>
+                                data-category="electricity" id="category-tag">Electricity</button>
                             <button
                                 class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
-                                data-category="schools">Schools</button>
+                                data-category="schools" id="category-tag">Schools</button>
                             <button
                                 class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
-                                data-category="hospitals">Hospitals</button>
+                                data-category="hospitals" id="category-tag">Hospitals</button>
                             <button
                                 class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
-                                data-category="water">Water</button>
+                                data-category="water" id="category-tag">Water</button>
                             <button
                                 class="category-tag px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200 !rounded-button whitespace-nowrap"
-                                data-category="markets">Markets</button>
+                                data-category="markets" id="category-tag">Markets</button>
                         </div>
                     </div>
+
                 </div>
-                
+                <button id="apply-lga-one"
+                    class="text-sm bg-primary text-white px-4 py-1 rounded hover:bg-opacity-90 !rounded-button whitespace-nowrap">Search</button>
             </div>
             <!-- Active Filters -->
             <div class="mt-4 flex flex-wrap gap-2" id="active-filters">
@@ -221,7 +224,7 @@
         </div>
     </section>
     <!-- Main Content -->
-    <section class="py-8 md:py-12" id="projects">
+    <section class="py-8 md:py-12">
         <div class="container mx-auto px-4">
             <div id="results-count" class="mb-6">
                 <h3 class="text-lg font-medium text-gray-700">Showing <span id="count-number">12</span> projects</h3>
@@ -505,115 +508,13 @@
                 </div>
             </div>
             <!-- Load More Button -->
-            <div class="mt-8 text-center">
+            <!-- <div class="mt-8 text-center">
                 <button id="load-more"
                     class="bg-white border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:text-white transition-colors shadow-sm whitespace-nowrap">
                     Load More Projects
                 </button>
-            </div>
-            <!-- Hidden Projects Wrapper -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
-                <div id="more-projects" class="hidden transition-opacity duration-700 opacity-0">
-                    <!-- Project Card 12 -->
-                    <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
-                        <div class="aspect-w-16 aspect-h-9 bg-gray-200">
-                            <div class="w-full h-0 pt-[56.25%] relative">
-                                <iframe class="absolute inset-0 w-full h-full"
-                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Community Center Project"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-lg font-semibold mb-2">Oyi Community Development Center</h3>
-                            <p class="text-gray-600 text-sm mb-3">Multi-purpose community center with meeting halls,
-                                skills
-                                training facilities, library, and digital access points serving as a hub for local
-                                development.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Oyi</span>
-                                <span
-                                    class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Markets</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Card 12 -->
-                    <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
-                        <div class="aspect-w-16 aspect-h-9 bg-gray-200">
-                            <div class="w-full h-0 pt-[56.25%] relative">
-                                <iframe class="absolute inset-0 w-full h-full"
-                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Community Center Project"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-lg font-semibold mb-2">Oyi Community Development Center</h3>
-                            <p class="text-gray-600 text-sm mb-3">Multi-purpose community center with meeting halls,
-                                skills
-                                training facilities, library, and digital access points serving as a hub for local
-                                development.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Oyi</span>
-                                <span
-                                    class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Markets</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Card 12 -->
-                    <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
-                        <div class="aspect-w-16 aspect-h-9 bg-gray-200">
-                            <div class="w-full h-0 pt-[56.25%] relative">
-                                <iframe class="absolute inset-0 w-full h-full"
-                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Community Center Project"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-lg font-semibold mb-2">Oyi Community Development Center</h3>
-                            <p class="text-gray-600 text-sm mb-3">Multi-purpose community center with meeting halls,
-                                skills
-                                training facilities, library, and digital access points serving as a hub for local
-                                development.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Oyi</span>
-                                <span
-                                    class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Markets</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Card 12 -->
-                    <div class="video-card bg-white rounded shadow-sm overflow-hidden fade-in">
-                        <div class="aspect-w-16 aspect-h-9 bg-gray-200">
-                            <div class="w-full h-0 pt-[56.25%] relative">
-                                <iframe class="absolute inset-0 w-full h-full"
-                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Community Center Project"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-lg font-semibold mb-2">Oyi Community Development Center</h3>
-                            <p class="text-gray-600 text-sm mb-3">Multi-purpose community center with meeting halls,
-                                skills
-                                training facilities, library, and digital access points serving as a hub for local
-                                development.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-2 py-1 bg-primary bg-opacity-10 text-primary text-xs rounded-full">Oyi</span>
-                                <span
-                                    class="px-2 py-1 bg-secondary bg-opacity-10 text-gray-700 text-xs rounded-full">Markets</span>
-                            </div>
-                        </div>
-                    </div>
+            </div> -->
+          
                     <!-- Add more hidden cards here -->
                 </div>
             </div>
@@ -701,10 +602,10 @@
         const mobileMenuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
-    
+
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-    
+
             // Toggle icon between menu and close
             if (menuIcon.classList.contains('ri-menu-line')) {
                 menuIcon.classList.remove('ri-menu-line');
@@ -715,7 +616,7 @@
             }
         });
     </script>
-    
+
 
     <script>
 
@@ -769,19 +670,20 @@
             // Smooth scroll for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    if (this.getAttribute('href') === '#') return;
-
                     const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
+                    if (targetId === '#' || !document.querySelector(targetId)) return;
 
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
+                    e.preventDefault(); // Important: Prevent the default anchor behavior
+
+                    const headerOffset = 80; // adjust this based on your header height
+                    const targetElement = document.querySelector(targetId);
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
                 });
             });
         });
@@ -794,6 +696,7 @@
             const lgaOptions = document.querySelectorAll('.lga-option');
             const clearLgaBtn = document.getElementById('clear-lga');
             const applyLgaBtn = document.getElementById('apply-lga');
+            const applyLgaBtn1 = document.getElementById('apply-lga-one');
             const activeFilters = document.getElementById('active-filters');
             const projectsGrid = document.getElementById('projects-grid');
             const countNumber = document.getElementById('count-number');
@@ -861,6 +764,19 @@
             });
             // Apply selections
             applyLgaBtn.addEventListener('click', function () {
+                lgaOptions.forEach(option => {
+                    if (selectedLGAsBeforeApply.has(option.value)) {
+                        option.checked = true;
+                    } else {
+                        option.checked = false;
+                    }
+                });
+                updateActiveFilters();
+                filterProjects();
+                lgaDropdown.classList.remove('show');
+            });
+            // Apply selections
+            applyLgaBtn1.addEventListener('click', function () {
                 lgaOptions.forEach(option => {
                     if (selectedLGAsBeforeApply.has(option.value)) {
                         option.checked = true;
@@ -958,20 +874,20 @@
         document.addEventListener('DOMContentLoaded', function () {
             const keywordSearch = document.getElementById('keyword-search');
             const videoCards = document.querySelectorAll('.video-card');
-        
+
             keywordSearch.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
                     const keyword = keywordSearch.value.trim().toLowerCase();
-        
+
                     videoCards.forEach(card => {
                         const title = card.querySelector('h3').textContent.toLowerCase();
                         const tags = Array.from(card.querySelectorAll('span')).map(span => span.textContent.toLowerCase());
-        
+
                         const matchesKeyword =
                             title.includes(keyword) ||
                             tags.some(tag => tag.includes(keyword));
-        
+
                         if (matchesKeyword || keyword === "") {
                             card.style.display = ''; // show
                         } else {
@@ -981,8 +897,8 @@
                 }
             });
         });
-        </script>
-        
+    </script>
+
     <script id="search-handler">
         document.addEventListener('DOMContentLoaded', function () {
             const keywordSearch = document.getElementById('keyword-search');
